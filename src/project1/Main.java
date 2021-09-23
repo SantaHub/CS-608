@@ -50,9 +50,20 @@ public class Main {
 
 	private static Integer getBiggestNumberUsingThreads(int numberOfThreads, List<Integer> numberList) {
 		List<MyThread> threadList = initializeThreadList(numberOfThreads, numberList);
+		// Executing the threads to find the biggest number.
 		for(MyThread myThread : threadList) {
 			myThread.run();
 		}
+		// Joining the threads to avoid empty biggestNumber.
+		for(MyThread myThread : threadList) {
+			try {
+				myThread.join();
+			} catch (InterruptedException e) {
+				System.out.println("Exception on thread : \n"+ myThread);
+				e.printStackTrace();
+			}
+		}
+		// Fetching the biggestNumber from each thread.
 		List<Integer> biggestFromThread = new ArrayList<Integer>();
 		for(MyThread myThread: threadList) {
 			biggestFromThread.add(myThread.getBiggestNumber());

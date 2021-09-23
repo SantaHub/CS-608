@@ -2,7 +2,7 @@ package project1;
 
 import java.util.List;
 
-public class MyThread {
+public class MyThread extends Thread {
 
 	private List<Integer> numberList;
 	private Integer biggestNumber; 
@@ -21,5 +21,9 @@ public class MyThread {
 
 	public int getBiggestNumber() {
 		return biggestNumber;
+	}
+	
+	public String toString() {
+		return "Thread array size : "+ numberList.size();
 	}
 }
