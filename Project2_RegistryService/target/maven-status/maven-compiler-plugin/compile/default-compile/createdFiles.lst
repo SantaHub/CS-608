@@ -1,0 +1,5 @@
+server\AddImpl.class
+server\Person.class
+server\MyServer.class
+Client\MyClient.class
+server\RegistryService.class
