@@ -47,25 +47,25 @@ public class HelloServlet extends HttpServlet {
         out.println("<h1>" + message + "</h1>");
         out.println("</body></html>");
         out.println("</body></html>");
-        out.println("<a href='http://localhost:8080/cs610_Project3_war_exploded'/>");
+        out.println("<a href='http://localhost:8080/cs610_Project3_war_exploded'>Back to prev page </a>");
     }
 
     private  String generateMessage(Map<String, String> valueMap){
-        Boolean isNameGood = validateValue(valueMap, "yourName");
-        Boolean isAgeGood = validateValue(valueMap, "yourAge");
+        Boolean isNamePresent = isValuePresent(valueMap, "yourName");
+        Boolean isAgePresent = isValuePresent(valueMap, "yourAge");
         String name = null,age = null;
 
-        if(!isNameGood && !isAgeGood){
+        if(!isNamePresent && !isAgePresent){
             return  "Must enter a name and Age. ";
         }
-        if(isNameGood && !isAgeGood){
+        if(isNamePresent && !isAgePresent){
             return "Must enter a Age.";
         }
-        if(!isNameGood && isAgeGood){
+        if(!isNamePresent && isAgePresent){
             return "Must enter a name.";
         }
 
-        if(isNameGood && isAgeGood){
+        if(isNamePresent && isAgePresent){
             name = valueMap.get("yourName");
             age = valueMap.get("yourAge");
             if(!isValueInteger(age)){
@@ -111,9 +111,9 @@ public class HelloServlet extends HttpServlet {
         return isRangeGood;
     }
 
-    private Boolean validateValue(Map<String, String> valueMap, String key ){
+    private Boolean isValuePresent(Map<String, String> valueMap, String key ){
         Boolean isValuePresent = false;
-        if(valueMap.containsKey(key) & valueMap.get(key) != null) {
+        if(valueMap.containsKey(key) && valueMap.get(key) != null && valueMap.get(key) != "" ){
             isValuePresent = true;
         }
         return isValuePresent;
