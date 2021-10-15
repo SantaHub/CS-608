@@ -55,7 +55,7 @@ public class MyClient
         String[] inputSplit = getInput().split(" ");
         try {
             String response = h.record(inputSplit[0], inputSplit[1], inputSplit[2]);
-            System.out.println(response + "is recorded.");
+            System.out.println(response);
         } catch (RemoteException re){
             re.printStackTrace();
         }
