@@ -7,7 +7,8 @@
 <body>
 <h1><%= "Hello World!" %>
 </h1>
-<form action="http://localhost:8080/Project/Main" method="get">
+
+<form action="http://localhost:8080/cs610_Project3_war_exploded/name-age" method="POST">
 Enter Your Name
     &nbsp;&nbsp;&nbsp;&nbsp;
     :
@@ -22,6 +23,5 @@ Enter Your Age
 <input type="submit" value="Click to submit">
 </form>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
 </body>
 </html>
