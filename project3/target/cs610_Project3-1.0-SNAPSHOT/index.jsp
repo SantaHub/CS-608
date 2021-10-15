@@ -7,6 +7,17 @@
 <body>
 <h1><%= "Hello World!" %>
 </h1>
+<form action="http://localhost:8080/Project/Main" method="get">
+Enter Your Name:
+<input type="text" name="yourName">
+<br>
+Enter Your Age
+&nbsp;&nbsp;&nbsp;&nbsp;
+:
+<input type="text" name="yourAge">
+<br>
+<input type="submit" value="Click to submit">
+</form>
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
 </body>
