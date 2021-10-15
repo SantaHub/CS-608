@@ -2,6 +2,8 @@ package com.example.cs610_project3;
 
 import java.io.*;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 
@@ -33,20 +35,21 @@ public class HelloServlet extends HttpServlet {
     }
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        // Hello
-        PrintWriter out = response.getWriter();
-        out.println(request);
+        Map<String, String> valueMap = generateMap(request);
+
+    }
+
+    private Map<String, String> generateMap(HttpServletRequest request){
+        Map<String, String> valueMap =  new HashMap<>();
+
         Enumeration<String> names = request.getParameterNames();
         while
         (names.hasMoreElements() ){
             String name = (String)names.nextElement();
             String value = request.getParameter(name);
-            System.out.println("("+ name +", "+ value +")");
+            valueMap.put(name, value);
         }
-        out.println("<html><body>");
-        out.println("<h1>" + message + "</h1>");
-        out.println("</body></html>");
+        return valueMap;
     }
 
     public void destroy() {
