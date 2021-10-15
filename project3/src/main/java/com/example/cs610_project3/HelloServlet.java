@@ -51,8 +51,8 @@ public class HelloServlet extends HttpServlet {
     }
 
     private  String generateMessage(Map<String, String> valueMap){
-        Boolean isNameGood = validateValue(valueMap, "name");
-        Boolean isAgeGood = validateValue(valueMap, "age");
+        Boolean isNameGood = validateValue(valueMap, "yourName");
+        Boolean isAgeGood = validateValue(valueMap, "yourAge");
         String name = null,age = null;
 
         if(!isNameGood && !isAgeGood){
@@ -66,8 +66,8 @@ public class HelloServlet extends HttpServlet {
         }
 
         if(isNameGood && isAgeGood){
-            name = valueMap.get("name");
-            age = valueMap.get("age");
+            name = valueMap.get("yourName");
+            age = valueMap.get("yourAge");
             if(!isValueInteger(age)){
                 return "Age must be a positive integer in the range of 1 to 100.";
             }
